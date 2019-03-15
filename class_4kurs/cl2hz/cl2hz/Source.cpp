@@ -75,7 +75,7 @@ double triangle::Hight() {
 	cout << "Высота1:" <<ha<< endl;
 	cout << "Высота2:" << hb << endl;
 	cout << "Высота3:" << hc << endl;
-	return ha, hb, hc;
+	//return ha, hb, hc;
 }
 
 double triangle::Square() {
@@ -84,29 +84,28 @@ double triangle::Square() {
 
 void triangle::Type() {
 
-	float param_a= (((b*b) + (c*c) - (a*a)) / (2 * b*c));
-	float param_b = (((a*a) + (c*c) - (b*b)) / (2 * a*c));
+	double param_a= (((b*b) + (c*c) - (a*a)) / (2 * b*c));
+	double param_b = (((a*a) + (c*c) - (b*b)) / (2 * a*c));
 	
-		alpha.graduce = (acos(param_a)*180.0/PI);
-		beta.graduce = (acos(param_b)*180.0/PI);
-		gamma.graduce = 180 - (alpha.graduce - beta.graduce);
+	alpha.graduce = (acos(param_a)*180.0/PI);
+	beta.graduce = (acos(param_b)*180.0/PI);
+	gamma.graduce = 180 - (alpha.graduce + beta.graduce);
 
-
+	alpha.graduce = round(alpha.graduce);
+	beta.graduce = round(beta.graduce);
+	gamma.graduce = round(gamma.graduce);
 	if ((alpha.graduce == 90) || (beta.graduce == 90) || (gamma.graduce == 90)) {
 		cout << "прямоугольный" << endl;
 	}
 	
-	if ((alpha.graduce = beta.graduce) || (alpha.graduce = gamma.graduce) || (beta.graduce = gamma.graduce)) {
+	if ((a==b)||(b==c)||(c==a)) {
 		cout << "Равнобедренный" << endl;
 	}
 
-	if ((alpha.graduce = beta.graduce = gamma.graduce)) {
+	if ((a==b)&&(b==c)) {
 		cout << "Равносторонний" << endl;
 	}
-
-	cout << "alpha:"<<alpha.graduce<<endl;
-	cout << "beta:" << beta.graduce << endl;
-	cout << "gamma:" << gamma.graduce << endl;
-	cout << "par a:" << param_a << endl;
-	cout << "par b:" << param_b << endl;
+	//cout << "alpha:"<<alpha.graduce<<endl;
+	//cout << "beta:" << beta.graduce << endl;
+	//cout << "gamma:" << gamma.graduce << endl;
 }

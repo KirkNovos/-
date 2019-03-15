@@ -11,13 +11,12 @@ using namespace std;
 
 class angle {
 public:
-	int graduce=0;
+	double graduce;
 };
 
 class triangle {
 public:
 	void ReadT();
-	void Display();
 	void Type();
 	double Square();
 	double Perimeter();
