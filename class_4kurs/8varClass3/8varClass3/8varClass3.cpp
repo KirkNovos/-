@@ -21,7 +21,7 @@ public:
 	WordCard WC1[SIZE];
 	void createCard();
 	void ShowCard();
-	void searchCard();
+	void searchCard(string);
 	void joinCard();
 	void delCard(int);
 };
@@ -29,7 +29,7 @@ public:
 void Dictionary::delCard(int DelMark) {
 	for (int i = DelMark; i <= number_of_card; i++) {
 		WC1[i].word = WC1[i + 1].word;
-		WC1[i].word = WC1[i + 1].word;
+		WC1[i].translate = WC1[i + 1].translate;
 	}
 	number_of_card--;
 }
@@ -50,26 +50,46 @@ void Dictionary::createCard() {
 	number_of_card++;
 	cout << endl;
 
+	int n;
+	n = number_of_card;
+		for (int i = 0; i < --n; i++)
+		{
 
+			string wrd2 = WC1[i].word;
+			string trn2 = WC1[i].translate;
+
+			if ((wrd1 == wrd2) && (trn1 == trn2))
+			{
+				//cout << "Номер проверяемого :" << i << endl;
+				//cout << "Наш номер капрты:" << number_of_card << endl;
+				cout << "Такая карточка уже существует!!!" << endl;
+				WC1[i].word = WC1[i].word;
+				WC1[i].translate = WC1[i].translate;
+				number_of_card--;
+			}
+			else
+			{
+				cout << "Новая карточка УРА!!!" << endl;
+			}
+	}
+}
+
+void Dictionary::searchCard(string wrd) {
 	for (int i = 0; i < number_of_card; i++)
 	{
-
 		string wrd2 = WC1[i].word;
 		string trn2 = WC1[i].translate;
-
-		//if ((WC1[number_of_card].word == WC1[i].word) && (WC1[number_of_card].translate == WC1[i].translate))
-		if ((wrd1 == wrd2) && (trn1 == trn2))
+		if (wrd==wrd2)
 		{
-			cout << "Такая карточка уже существует!!!" << endl;
-			//cout << "Новая карточка УРА!!!" << endl;
+			cout << "слово:" << wrd2 << endl;
+			cout << "перевод:" << trn2 << endl;
+			cout << endl;
 		}
 		else
 		{
-			cout << "Новая карточка УРА!!!" << endl;
-			//number_of_card++;
-			//cout << endl;
+			cout << "такого слова нет!" << endl;
+			cout << endl;
 		}
-		
 	}
 }
 
@@ -78,6 +98,7 @@ int main()
 	setlocale(LC_ALL, "RUSSIAN");
 	int DelMark, j = 0, n = 0, key = 1;
 	int number_of_book = 0;
+	string wrd;
 	Dictionary arr[10];
 
 	do {
@@ -88,6 +109,7 @@ int main()
 		cout << "4.Показ карточки слова (сделать выбор словаря)" << endl;
 		cout << "5.Удаление карточки (сделать выбор словаря)" << endl;
 		cout << "6.Переименовать словарь (сделать выбор словаря)" << endl;
+		cout << "7.Поиск слова (сделать выбор словаря)" << endl;
 		cout << "0.Выход" << endl;
 
 		cin >> key;
@@ -95,7 +117,6 @@ int main()
 		{
 		case 1:
 			cout << "Введите название словаря:";
-			//cin >> arr[i].name_book;
 			cin >> arr[number_of_book].name_book;
 			cout << endl;
 			number_of_book++;
@@ -123,6 +144,12 @@ int main()
 			cout << "Введите новое название словаря:";
 			cin >> arr[j].name_book;
 			break;
+		case 7:
+			cout << "Введите слово для поиска карточки:";
+			cin >> wrd;
+			cout << endl;
+			arr[j].searchCard(wrd);
+
 		}
 	} while (key != 0);
 
