@@ -22,8 +22,25 @@ public:
 	void createCard();
 	void ShowCard();
 	void searchCard(string);
-	void joinCard();
+	//void joinCard();
 	void delCard(int);
+	//void plus(int, int);
+
+	//int & operator[](int n, int m);
+
+	int operator+(Dictionary & nw) {
+		int j, i = 0;
+		int a = number_of_card + nw.number_of_card;
+		for (j=number_of_card; j < a; j++)
+		{
+			WC1[j].word = nw.WC1[i].word;
+			WC1[j].translate = nw.WC1[i].translate;
+			i = i + 1;
+		}
+		number_of_card = a;
+		return 0;
+	}
+
 };
 
 void Dictionary::delCard(int DelMark) {
@@ -93,10 +110,35 @@ void Dictionary::searchCard(string wrd) {
 	}
 }
 
+/*void Dictionary::plus(int n, int m) {
+	Dictionary arr[10];
+	int number_of_book;
+	arr[number_of_book]=arr[n];
+	string wrd=WC1[number_of_card].word;
+	string trn=WC1[number_of_card].translate;
+	for (int i = 0; i < number_of_card; i++)
+	{
+		if (arr[number_of_book].WC1[number_of_card].word == arr[m].WC1[number_of_card].word) {
+			arr[n].WC1[number_of_card].word != arr[m].WC1[number_of_card].word;
+		}
+		else
+		{
+			arr[number_of_book].WC1[number_of_card].word + arr[m].WC1[number_of_card].word;
+			
+		}
+	}
+}
+*/
+
+/*void Dictionary::operator[](int n, int m) {
+
+}
+*/
+
 int main()
 {
 	setlocale(LC_ALL, "RUSSIAN");
-	int DelMark, j = 0, n = 0, key = 1;
+	int DelMark, j = 0, n, m, key = 1;
 	int number_of_book = 0;
 	string wrd;
 	Dictionary arr[10];
@@ -110,6 +152,7 @@ int main()
 		cout << "5.Удаление карточки (сделать выбор словаря)" << endl;
 		cout << "6.Переименовать словарь (сделать выбор словаря)" << endl;
 		cout << "7.Поиск слова (сделать выбор словаря)" << endl;
+		cout << "8.Слияние двух словарей" << endl;
 		cout << "0.Выход" << endl;
 
 		cin >> key;
@@ -149,7 +192,34 @@ int main()
 			cin >> wrd;
 			cout << endl;
 			arr[j].searchCard(wrd);
+		case 8:
+			cout << "Введите название обьединённого словаря:";
+			cin >> arr[number_of_book].name_book;
+			cout << endl;
+			number_of_book++;
 
+			/*
+			for (int i = 0; i <= number_of_book; i++)
+			{
+				cout << "Словарь " << i << ":" << endl;
+				for (int j = 0; j < arr[i].number_of_card; j++)
+				{
+					cout << arr[i].WC1[j].word << endl;
+					cout << arr[i].WC1[j].translate << endl;
+				}
+			}
+			*/
+
+			cout << "Введите номер первого словаря:";
+			cin >> m;
+			cout << "Введите номер второго словаря:";
+			cin >> n;
+			cout << "Выбранный словарь 1:" << arr[m].name_book << endl;
+			cout << "Выбранный словарь 2:" << arr[n].name_book << endl;
+			arr[m] + arr[n];
+			//cout << "Выбранные словари:" << endl << arr[m].name_book << endl<<arr[n].name_book << endl;
+			//arr[number_of_book].plus(n, m);
+			break;
 		}
 	} while (key != 0);
 
