@@ -18,9 +18,9 @@ class triangle {
 public:
 	void ReadT();
 	void Type();
+	void Hight();
 	double Square();
 	double Perimeter();
-	double Hight();
 
 private:
 	double a=0;

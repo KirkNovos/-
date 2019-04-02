@@ -12,6 +12,7 @@
 using namespace std;
 
 void triangle::ReadT() {
+
 		while (true)
 		{
 			cout << "Введите сторону а: ";
@@ -56,26 +57,31 @@ void triangle::ReadT() {
 				while (cin.get() != '\n') {}
 			}
 		}
+
+
+	
 	if ((a < b + c) && (b < a + c) && (c < a + b)) {
 		cout << "Треугольник существует" << endl;
 	}
 	else {
-		cout << "Всё говно давай по новой" << endl;
+		//cout << "Всё говно давай по новой" << endl;
+		cout << "Такого треугольника не существует!" << endl;
+		ReadT();
 	}
+
 }
 
 double triangle::Perimeter() {
 	return a + b + c;
 }
 
-double triangle::Hight() {
+void triangle::Hight() {
 	ha = 2 * (Square() / a);
 	hb = 2 * (Square() / b);
 	hc = 2 * (Square() / c);
 	cout << "Высота1:" <<ha<< endl;
 	cout << "Высота2:" << hb << endl;
 	cout << "Высота3:" << hc << endl;
-	//return ha, hb, hc;
 }
 
 double triangle::Square() {
@@ -105,7 +111,7 @@ void triangle::Type() {
 	if ((a==b)&&(b==c)) {
 		cout << "Равносторонний" << endl;
 	}
-	//cout << "alpha:"<<alpha.graduce<<endl;
-	//cout << "beta:" << beta.graduce << endl;
-	//cout << "gamma:" << gamma.graduce << endl;
+	cout << "alpha:"<<alpha.graduce<<endl;
+	cout << "beta:" << beta.graduce << endl;
+	cout << "gamma:" << gamma.graduce << endl;
 }
