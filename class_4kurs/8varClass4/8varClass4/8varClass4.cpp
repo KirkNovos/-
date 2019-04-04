@@ -10,19 +10,30 @@ using namespace std;
 
 class triangle {
 public:
-	void ReadT();
-	//void Perimeter();
-	double Perimeter();
-	void angle();
+		void ReadT();
+		//void Perimeter();
+		double Perimeter();
+		void angle();
 
-	double a = 0;
-	double b = 0;
-	double c = 0;
+	//triangle() {
+
+		double a = 0;
+		double b = 0;
+		double c = 0;
+	//}
 };
 
 class RightAngle: public triangle {
 public:
-	void Square();
+	//RightAngle():triangle(){}
+	//RightAngle(double a,double b,double c):triangle(a,b,c){}
+
+	void Square() {
+		//sq = sqrt((a+b+c) / 2 * ((a + b + c) / 2 - a)*((a + b + c) / 2 - b)*((a + b + c) / 2 - c));
+		sq = sqrt(Perimeter() / 2 * (Perimeter() / 2 - a)*(Perimeter() / 2 - b)*(Perimeter() / 2 - c));
+		cout << "Площадь:" << sq << endl;
+		cout << "PRMTR:" << Perimeter() << endl;
+	};
 	double sq;
 };
 
@@ -86,6 +97,8 @@ void triangle::ReadT() {
 
 double triangle::Perimeter() {
 	return a + b + c;
+	//int per= a + b + c;
+	//cout << "Периметр:" << per << endl;
 }
 
 void triangle::angle() {
@@ -107,10 +120,13 @@ void triangle::angle() {
 	cout << "Угол гамма:" << gamma << endl;
 }
 
+/*
 void RightAngle::Square() {
 	sq = sqrt(Perimeter() / 2 * (Perimeter() / 2 - a)*(Perimeter() / 2 - b)*(Perimeter() / 2 - c));
 	cout << "Площадь:" << sq << endl;
+	cout << "PRMTR:" << Perimeter() << endl;
 }
+*/
 
 int main()
 {
@@ -132,6 +148,7 @@ int main()
 			break;
 		case 2:
 			cout<<"Периметр:"<<tr.Perimeter()<<endl;
+			//tr.Perimeter();
 			break;
 		case 3:
 			ra.Square();

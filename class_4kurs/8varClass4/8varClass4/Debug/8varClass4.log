@@ -1,4 +1,4 @@
 ﻿  8varClass4.cpp
-c:\users\кирилл\desktop\долги\c++\классы 4 курс\8varclass4\8varclass4\8varclass4.cpp(97): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
-c:\users\кирилл\desktop\долги\c++\классы 4 курс\8varclass4\8varclass4\8varclass4.cpp(98): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+c:\users\кирилл\desktop\долги\c++\классы 4 курс\8varclass4\8varclass4\8varclass4.cpp(110): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+c:\users\кирилл\desktop\долги\c++\классы 4 курс\8varclass4\8varclass4\8varclass4.cpp(111): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
   8varClass4.vcxproj -> C:\Users\Кирилл\Desktop\долги\C++\классы 4 курс\8varClass4\Debug\8varClass4.exe
