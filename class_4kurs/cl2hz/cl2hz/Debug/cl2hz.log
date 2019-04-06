@@ -1,2 +1,9 @@
 ﻿  Source.cpp
+c:\users\кирилл\desktop\долги\c++\классы 4 курс\cl2hz\cl2hz\source.cpp(95): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+c:\users\кирилл\desktop\долги\c++\классы 4 курс\cl2hz\cl2hz\source.cpp(96): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+c:\users\кирилл\desktop\долги\c++\классы 4 курс\cl2hz\cl2hz\source.cpp(99): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+c:\users\кирилл\desktop\долги\c++\классы 4 курс\cl2hz\cl2hz\source.cpp(100): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+c:\users\кирилл\desktop\долги\c++\классы 4 курс\cl2hz\cl2hz\source.cpp(101): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+c:\users\кирилл\desktop\долги\c++\классы 4 курс\cl2hz\cl2hz\source.cpp(102): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+c:\users\кирилл\desktop\долги\c++\классы 4 курс\cl2hz\cl2hz\source.cpp(104): warning C4244: =: преобразование "float" в "int", возможна потеря данных
   cl2hz.vcxproj -> C:\Users\Кирилл\Desktop\долги\C++\классы 4 курс\cl2hz\Debug\cl2hz.exe

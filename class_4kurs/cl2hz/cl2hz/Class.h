@@ -11,7 +11,8 @@ using namespace std;
 
 class angle {
 public:
-	double graduce;
+	int graduce;
+	int minute;
 };
 
 class triangle {
