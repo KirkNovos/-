@@ -1,2 +1,5 @@
 ﻿  8varClass3.cpp
+c:\users\кирилл\desktop\долги\c++\классы 4 курс\8varclass3\8varclass3\8varclass3.cpp(193): warning C4101: m: неиспользованная локальная переменная
+c:\users\кирилл\desktop\долги\c++\классы 4 курс\8varclass3\8varclass3\8varclass3.cpp(193): warning C4101: n: неиспользованная локальная переменная
+c:\users\кирилл\desktop\долги\c++\классы 4 курс\8varclass3\8varclass3\8varclass3.cpp(117): warning C4715: Dictionary::operator/: значение возвращается не при всех путях выполнения
   8varClass3.vcxproj -> C:\Users\Кирилл\Desktop\долги\C++\классы 4 курс\8varClass3\Debug\8varClass3.exe

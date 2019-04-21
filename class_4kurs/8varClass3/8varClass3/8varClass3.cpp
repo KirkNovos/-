@@ -24,22 +24,98 @@ public:
 	void searchCard(string);
 	//void joinCard();
 	void delCard(int);
-	//void plus(int, int);
 
-	//int & operator[](int n, int m);
 
-	int operator+(Dictionary & nw) {
+	int operator+(const Dictionary & v) {
 		int j, i = 0;
-		int a = number_of_card + nw.number_of_card;
-		for (j=number_of_card; j < a; j++)
+		//int x, y = 0;
+		int new_number_card = number_of_card + v.number_of_card;
+		for (j=number_of_card; j < new_number_card; j++)
 		{
-			WC1[j].word = nw.WC1[i].word;
-			WC1[j].translate = nw.WC1[i].translate;
+			WC1[j].word = v.WC1[i].word;
+			WC1[j].translate = v.WC1[i].translate;
 			i = i + 1;
 		}
-		number_of_card = a;
+		number_of_card = new_number_card;
 		return 0;
 	}
+
+	
+	int operator=(const Dictionary & v) {
+		int j, i = 0;
+		for (j = 0; j < v.number_of_card; j++) {
+			WC1[j].word = v.WC1[i].word;
+			WC1[j].translate = v.WC1[i].translate;
+			i = i + 1;
+		}
+		number_of_card = v.number_of_card;
+		return 0;
+	}
+
+
+	int operator*(const Dictionary & v) {
+		int k = 0, i, j, b, n = 0, new_number_of_card;
+		int narr[10];
+		string jo;
+		new_number_of_card = v.number_of_card;
+		for (i = 0; i < number_of_card; i++)
+		{
+			for (j = 0; j < new_number_of_card; j++)
+			{
+				jo = v.WC1[j].word;
+				if (WC1[i].word == jo) {
+					narr[n] = i;
+					n++;
+				}
+			}
+		}
+		for (i = 0; i < n; i++)
+		{
+			b = narr[i];
+			cout << b;
+			for (j = 0; j < b; j++)
+			{
+				WC1[j].word = WC1[b].word;
+				WC1[j].translate = WC1[b].translate;
+			}
+			k++;
+		}
+		number_of_card = n;
+		return 0;
+	}
+
+	int operator/(const Dictionary & v) {
+		int k = 0, flag = 0, i, j, b, n = 0, new_number_of_card;
+		int narr[10];
+		string jo;
+		new_number_of_card = v.number_of_card;
+		for (i = 0; i < number_of_card; i++) {
+			flag = 0;
+			for (j = 0; j < new_number_of_card; j++)
+			{
+				jo = v.WC1[j].word;
+				if (flag==1)
+				{
+					narr[n] = i;
+					n++;
+				}
+			}
+			for (i = 0; i < n; i++)
+			{
+				b = narr[i];
+				cout << b;
+				for (j = 0; j < b; j++)
+				{
+					WC1[j].word = WC1[b].word;
+					WC1[j].translate = WC1[b].translate;
+				}
+				k++;
+			}
+			number_of_card = n + 1;
+			return 0;
+		}
+	}
+
 
 };
 
@@ -110,35 +186,12 @@ void Dictionary::searchCard(string wrd) {
 	}
 }
 
-/*void Dictionary::plus(int n, int m) {
-	Dictionary arr[10];
-	int number_of_book;
-	arr[number_of_book]=arr[n];
-	string wrd=WC1[number_of_card].word;
-	string trn=WC1[number_of_card].translate;
-	for (int i = 0; i < number_of_card; i++)
-	{
-		if (arr[number_of_book].WC1[number_of_card].word == arr[m].WC1[number_of_card].word) {
-			arr[n].WC1[number_of_card].word != arr[m].WC1[number_of_card].word;
-		}
-		else
-		{
-			arr[number_of_book].WC1[number_of_card].word + arr[m].WC1[number_of_card].word;
-			
-		}
-	}
-}
-*/
-
-/*void Dictionary::operator[](int n, int m) {
-
-}
-*/
 
 int main()
 {
 	setlocale(LC_ALL, "RUSSIAN");
 	int DelMark, j = 0, n, m, key = 1;
+	int x, y, z;
 	int number_of_book = 0;
 	string wrd;
 	Dictionary arr[10];
@@ -153,6 +206,8 @@ int main()
 		cout << "6.Переименовать словарь (сделать выбор словаря)" << endl;
 		cout << "7.Поиск слова (сделать выбор словаря)" << endl;
 		cout << "8.Слияние двух словарей" << endl;
+		cout << "9.Пересечение двух словарей" << endl;
+		cout << "10.Удаление словаря" << endl;
 		cout << "0.Выход" << endl;
 
 		cin >> key;
@@ -192,47 +247,56 @@ int main()
 			cin >> wrd;
 			cout << endl;
 			arr[j].searchCard(wrd);
+			break;
 		case 8:
 			cout << "Введите название обьединённого словаря:";
 			cin >> arr[number_of_book].name_book;
 			cout << endl;
-			number_of_book++;
-
-			/*
-			for (int i = 0; i <= number_of_book; i++)
-			{
-				cout << "Словарь " << i << ":" << endl;
-				for (int j = 0; j < arr[i].number_of_card; j++)
-				{
-					cout << arr[i].WC1[j].word << endl;
-					cout << arr[i].WC1[j].translate << endl;
-				}
-			}
-			*/
-
-			cout << "Введите номер первого словаря:";
-			cin >> m;
+			//number_of_book++;
+			
+			cout << "Введите номер первого словаря:"; 
+			cin >> x;
 			cout << "Введите номер второго словаря:";
-			cin >> n;
-			cout << "Выбранный словарь 1:" << arr[m].name_book << endl;
-			cout << "Выбранный словарь 2:" << arr[n].name_book << endl;
-			arr[m] + arr[n];
-			//cout << "Выбранные словари:" << endl << arr[m].name_book << endl<<arr[n].name_book << endl;
-			//arr[number_of_book].plus(n, m);
+			cin >> y;
+			cout << "Выбранный словарь 1:" << arr[x].name_book << endl;
+			cout << "Выбранный словарь 2:" << arr[y].name_book << endl;
+
+
+			z = number_of_book++;
+			arr[z] = arr[x];
+			arr[z] + arr[y];
+			break;
+
+		case 9:
+			cout << "Введите название пересечённого словаря:";
+			cin >> arr[number_of_book].name_book;
+			cout << endl;
+			cout << "Введите номер первого словаря:";
+			cin >> x;
+			cout << "Введите номер второго словаря:";
+			cin >> y;
+			cout << "Выбранный словарь 1:" << arr[x].name_book << endl;
+			cout << "Выбранный словарь 2:" << arr[y].name_book << endl;
+			z = number_of_book++;
+			arr[z] = arr[x];
+			arr[z] * arr[y];
+			break;
+		case 10:
+			cout << "Введите название пересечённого словаря:";
+			cin >> arr[number_of_book].name_book;
+			cout << endl;
+			cout << "Введите номер первого словаря:";
+			cin >> x;
+			cout << "Введите номер второго словаря:";
+			cin >> y;
+			cout << "Выбранный словарь 1:" << arr[x].name_book << endl;
+			cout << "Выбранный словарь 2:" << arr[y].name_book << endl;
+			int z = number_of_book++;
+			arr[z] = arr[x];
+			arr[z] / arr[y];
 			break;
 		}
+
 	} while (key != 0);
 
-	//std::cout << "Hello World!\n"; 
 }
-
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
