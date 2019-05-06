@@ -23,9 +23,13 @@ __published:	// IDE-managed Components
         TButton *Button2;
         TChart *Chart1;
         TColorBox *ColorBox1;
-        TFontDialog *FontDialog1;
+        TEdit *Edit1;
+        TLabel *Label1;
+        TLabel *Label2;
+        TButton *Button3;
         void __fastcall Button1Click(TObject *Sender);
         void __fastcall Button2Click(TObject *Sender);
+        void __fastcall Button3Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TForm1(TComponent* Owner);

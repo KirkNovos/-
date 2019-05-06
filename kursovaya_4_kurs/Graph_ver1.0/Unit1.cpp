@@ -28,7 +28,7 @@ using namespace std;
 
 static int p=0;
 static int p1=0;
-int n,m,z,c;
+int n,m,z,c,aprox;
 static int Mass[100];
 string strok[2];
 string a,b,r;
@@ -62,7 +62,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
         */
 
 
-
+        p=0;
         if (!OpenDialog1->Execute())return;
         FILE*f1;
         f1=fopen(OpenDialog1->FileName.c_str(), "r");
@@ -144,25 +144,44 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
     const int n=10;
     int u=1;
     int z;
+    z=Edit1->Text.ToInt();
+    z=StrToInt(Edit1->Text);
+
+    /*
     TLineSeries *Series[n];
 
     for (int f=0;f<u;f++){
         Series[f] =new TLineSeries(Chart1);
         Chart1->AddSeries(Series[f]);
-        //u++;
     }
+
+
      for (int f=0;f<u;f++){
        for (int i=0; i<p; i++){
-        //for (int j=0; j<p; j++)//{
                 Chart1->Series[f]->AddXY(X[i],Y[i],"",ColorBox1->Selected);
                 Series[f]->LinePen->Width=z;
-        //}
        }
      }
      u++;
+     aprox=u;
+     */
+     TLineSeries *Serie =new TLineSeries(Chart1);
+     //Serie->Pointer->Visible = true;
 
-     //for (int i=0; i<p; i++){
-     //Series1->AddXY(i,A[i],"",clBlack);
-     //}
+     Chart1->AddSeries(Serie);
+     for (int i=0; i<p; i++){
+        Serie->AddXY(X[i],Y[i],"",ColorBox1->Selected);
+        Serie->LinePen->Width=z;
+     }
+     aprox++;
 }
 //---------------------------------------------------------------------------
+void __fastcall TForm1::Button3Click(TObject *Sender)
+{
+   for (int i = 0; i < aprox; i++){
+        TLineSeries *ls = dynamic_cast<TLineSeries*>(Chart1->Series[i]);
+        if(ls) ls->Stairs = !ls->Stairs;
+    }
+}
+//---------------------------------------------------------------------------
+
